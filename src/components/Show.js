@@ -8,10 +8,6 @@ function Actor() {
     if (inputVal.length > 0) {
         dataUrl = `https://api.tvmaze.com/search/shows?q=${inputVal}`;
     } 
-    
-    // else {
-    //     dataUrl = `https://api.tvmaze.com/search/shows?q=friends`;
-    // }
 
     const getshowData = async () => {
         try {
@@ -51,7 +47,7 @@ function Actor() {
                             return (
                               <div className="col-md-3 mb-3">
                                 <div className="card">
-                                  <a href={element.show.url} target="_blank">
+                                  <a href={element.show.url} target="_moni">
                                   {element.show.image ? (
                                     <img
                                       src={element.show.image.medium}
