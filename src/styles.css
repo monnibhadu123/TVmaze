@@ -28,10 +28,19 @@ body {
   justify-content: center;
   margin-left: 40%;
 }
+.container{
+  padding: 10px;
+}
 .show-wrapper {
   width: 100%;
   background-color: #109fa9;
   padding: 10px;
+}
+
+.input-show {
+  padding: 10px;
+  width: 400px;
+  color: #626f70!important;
 }
 
 .input-show {
