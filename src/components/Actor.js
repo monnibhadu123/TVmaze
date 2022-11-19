@@ -24,7 +24,7 @@ function Actor() {
   // console.log(actorsData);
   return (
     <>
-      <section className="mt-5">
+      <section className="mt-5 show-wrapper">
         <div className="container">
           <div className="row">
             <div className="col-md-7">
@@ -32,7 +32,7 @@ function Actor() {
                 type="text"
                 value={inputVal}
                 onChange={(e) => setInputVal(e.target.value)}
-                className="form-control"
+                className="form-control input-show"
                 placeholder="Search by Actors name...."
               />
             </div>
