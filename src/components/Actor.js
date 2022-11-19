@@ -8,9 +8,6 @@ function Actor() {
   if (inputVal.length > 0) {
     dataUrl = `https://api.tvmaze.com/search/people?q=${inputVal}`;
   } 
-  // else {
-  //   dataUrl = `https://api.tvmaze.com/search/people?q=friends`;
-  // }
 
   const getActorsData = async () => {
     try {
@@ -50,7 +47,7 @@ function Actor() {
               return (
                 <div className="col-md-3 mb-3">
                   <div className="card">
-                    <a href={element.person.url} target="_aayush">
+                    <a href={element.person.url} target="_moni">
                     {element.person.image ? (
                       <img
                         src={element.person.image.medium}
