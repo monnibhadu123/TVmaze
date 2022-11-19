@@ -14,3 +14,26 @@ body {
   background-size: cover;
   font-family: 'Quicksand', sans-serif;
 }
+.navbar{
+  background-color:rgb(36, 216, 216);
+}
+
+.container-fluid{
+  background-image: linear-gradient( #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1,#ba83ca, #c777b9, #d16ba5); 
+} 
+
+.container-child img{
+  background-color:rgb(170, 27, 27);
+  align-items: center;
+  justify-content: center;
+  margin-left: 40%;
+}
+.show-wrapper {
+  width: 100%;
+  background-color: #109fa9;
+  padding: 10px;
+}
+
+.input-show {
+  color: #626f70!important;
+}
