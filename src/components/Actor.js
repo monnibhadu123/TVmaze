@@ -1,90 +1,86 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
+import NotFound from "./NotFound";
 
-function Actor() {
-  const [inputVal, setInputVal] = useState("");
-  const [actorsData, setActorsData] = useState([]);
-
-  let dataUrl = "";
-  if (inputVal.length > 0) {
-    dataUrl = `https://api.tvmaze.com/search/people?q=${inputVal}`;
-  } 
-
-  const getActorsData = async () => {
-    try {
-      let respone = await fetch(dataUrl);
-      let resData = await respone.json();
-      setActorsData(resData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getActorsData();
-  }, [inputVal]);
-  // console.log(actorsData);
+  function Actor() {
+    const [input, setInput] = useState("");
+    const [actorData, setActorData] = useState([]);
+  
+    console.log(actorData);
+  
+    const handleActorInput = (e) => {
+      setInput(e.target.value);
+    };
+  
+    const getActorData = () => {
+      const url = `https://api.tvmaze.com/search/people?q=${input}`;
+      axios.get(url).then((res) => setActorData(res.data));
+    };
+  
+    useEffect(() => {
+      getActorData();
+    }, [input]);
+  
   return (
     <>
-      <section className="mt-5 show-wrapper">
+      <section className="mt-2 show-wrapper">
         <div className="container">
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-md-6">
               <input
                 type="text"
-                value={inputVal}
-                onChange={(e) => setInputVal(e.target.value)}
-                className="form-control input-show"
-                placeholder="Search by Actors name...."
+                className="form-control input-show mt-3 mb-3"
+                value={input}
+                onChange={handleActorInput}
+                placeholder="Search by actor name..."
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section>
-        <div className="container mt-4">
-          <div className="row">
-            {actorsData.map((element) => {
+      <section className="container mt-4">
+        <div className="row">
+          { actorData && actorData.length > 0 ? (
+            actorData &&
+            actorData.map((item) => {
+              let image = item.person.image;
               return (
-                <div className="col-md-3 mb-3">
-                  <div className="card">
-                    <a href={element.person.url} target="_moni">
-                    {element.person.image ? (
-                      <img
-                        src={element.person.image.medium}
-                        className="poster"
-                        style={{ width: "255px", height: "325px" }}
-                        alt={
-                          element.person.name != null
-                            ? element.person.name
-                            : "Not found"
-                        }
-                      />
-                    ) : (
-                      <div className="poster" style={{ height: "325px" }}>
-                        <img
-                          src="https://www.prokerala.com/movies/assets/img/no-poster-available.jpg"
-                          style={{ width: "250px", height: "325px" }}
-                          alt = "Not Found"
-                        />
+              
+                image ? (
+                  <>
+                    <div className="col-md-4 mb-3" key={item.person.id}>
+                      <div className="card">
+                        <h5 className="text-danger text-center mt-2 mb-2">
+                          {item.person.name}
+                        </h5>
+                        <a href={item.person.url} target="_moni">
+                          {item.person.image ? (
+                            <img
+                              src={item.person.image.medium}
+                              style={{ width: "100%" }}
+                              alt={
+                                item.person.name != null
+                                  ? item.person.name
+                                  : "Not found"
+                              }
+                            />
+                          ) : (
+                            ""
+                          )}
+                        </a>
                       </div>
-                    )}
-                    </a>
-                    <div className="card-body">
-                      <p
-                        className="card-text overflow-hidden"
-                        style={{ height: "90px" }}
-                      >
-                        lored sdfhsadfh fsdhhasff hsfdih
-                      </p>
                     </div>
-                    <h5 className="text-danger text-center">
-                      {element.person.name}
-                    </h5>
-                  </div>
-                </div>
+                  </>
+                ) : (
+                  ""
+                )
+                
               );
-            })}
-          </div>
+            })
+          ) : (
+            <NotFound />
+          )}
         </div>
       </section>
     </>
