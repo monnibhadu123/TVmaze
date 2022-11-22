@@ -8,7 +8,7 @@
 
 body {
   width: 100%;
-  background-color: #ba83ca;
+  background-color: #d29de2;
   background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,7 +19,7 @@ body {
 }
 
 .container-fluid{
-  background-image: linear-gradient( #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1,#ba83ca, #c777b9, #d16ba5); 
+  background-image: linear-gradient(  #ba83ca, #aa8fd8, #9a9ae1,#ba83ca); 
 } 
 
 .container-child img{
@@ -45,4 +45,24 @@ body {
 
 .input-show {
   color: #626f70!important;
+}
+.classNotFound {
+  width: 290px;
+  height: 408px;
+}
+.card {
+  box-shadow: rgba(226, 220, 220, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  transition: all 0.3s ease;
+  border-radius: 15px;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+ 
 }
